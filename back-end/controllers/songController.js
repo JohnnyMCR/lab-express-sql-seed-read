@@ -1,8 +1,8 @@
 const express = require("express");
-const song = express.Router();
+const songs = express.Router();
 const { getAllSongs, getASong, createASong, deleteASong } = require("../queries/songs")
 
-bookmark.get("/", async (req, res) => {
+songs.get("/", async (req, res) => {
     const AllSongs = await getAllSongs();
 
     if (AllSongs) {
@@ -12,7 +12,7 @@ bookmark.get("/", async (req, res) => {
     }
 })
 
-song.get("/:id", async (req, res) => {
+songs.get("/:id", async (req, res) => {
     const { id } = req.params;
     const song = await getASong(id);
 
@@ -24,7 +24,7 @@ song.get("/:id", async (req, res) => {
 })
 
 // create route
-song.post('/', async (req, res) => {
+songs.post('/', async (req, res) => {
     const newSong = req.body;
 
     try {
@@ -36,7 +36,7 @@ song.post('/', async (req, res) => {
 })
 
 // delete route
-song.delete('/:id', async (req, res) => {
+songs.delete('/:id', async (req, res) => {
     const { id } = req.params;
 
     try {
@@ -47,4 +47,4 @@ song.delete('/:id', async (req, res) => {
     }
 })
 
-module.exports = song;
+module.exports = songs;

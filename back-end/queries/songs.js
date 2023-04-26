@@ -1,4 +1,4 @@
-const song = require("../controllers/songController");
+const songs = require("../controllers/songController");
 const db = require("../db/dbConfig");
 
 const getAllSongs = async () => {

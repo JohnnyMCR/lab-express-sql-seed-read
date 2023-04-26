@@ -1,12 +1,12 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-// const songController = require("./controllers/songController");
+const songController = require("./controllers/songController");
 
 app.use(express.json());
 app.use(cors());
 
-// app.use("/song", songController)
+app.use("/songs", songController)
 
 app.get("/", (req, res) => {
     res.send("Welcome")
